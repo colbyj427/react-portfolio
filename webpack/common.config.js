@@ -1,47 +1,53 @@
 // webpack plugins
-const SplitChunksPlugin = require('webpack/lib/optimize/SplitChunksPlugin');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: {
-    app: ['./src/bootstrap.js'],
-    vendor: './src/vendor.js',
+  entry: './src/bootstrap.js', // adjust if your entry is different
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[contenthash].js',
+    publicPath: '/'
   },
-
   resolve: {
-    extensions: ['.js', '.scss'],
-
-    modules: ['node_modules'],
+    extensions: ['.js', '.jsx', '.json'],
+    fallback: {
+      crypto: require.resolve('crypto-browserify'),
+      constants: require.resolve('constants-browserify'),
+      buffer: require.resolve('buffer/'),
+      stream: require.resolve('stream-browserify'),
+      vm: require.resolve('vm-browserify')
+    }
   },
-
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ['babel-loader']
       },
-
       {
-        type: 'javascript/auto',
-        test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]',
-          publicPath: '/',
-        },
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
-
       {
-        test: /\.(mp4|webm)$/,
-        loader: 'url?limit=10000',
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       },
-    ],
+      {
+        test: /\.(png|jpe?g|gif|svg|ico)$/i,
+        type: 'asset/resource'
+      },
+      {
+        test: /\.(woff(2)?|eot|ttf|otf)$/,
+        type: 'asset/resource'
+      }
+    ]
   },
-
   plugins: [
-    new SplitChunksPlugin({
-      name: ['app', 'vendor'],
-      minChunks: Infinity,
-    }),
-  ],
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '../public/index.html'),
+      inject: 'body'
+    })
+  ]
 };

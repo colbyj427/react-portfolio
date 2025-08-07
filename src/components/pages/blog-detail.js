@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ReactHtmlParser from "react-html-parser";
+import parse from "html-react-parser";
 
 import BlogForm from "../blog/blog-form";
 import BlogFeaturedImage from "../blog/blog-featured-image";
@@ -89,7 +89,7 @@ export default class BlogDetail extends Component {
 
             <BlogFeaturedImage img={featured_image_url} />
 
-            <div className="content">{ReactHtmlParser(content)}</div>
+            <div className="content">{parse(content)}</div>
           </div>
         );
       }
