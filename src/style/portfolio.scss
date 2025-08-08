@@ -42,6 +42,15 @@
             width: 50%;
             margin-bottom: 20px;
         }
+
+        .portfolio-item-name {
+            margin-top: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #222;
+            text-align: center;
+            /* Make sure it’s visible permanently */
+        }
     }
 }
 

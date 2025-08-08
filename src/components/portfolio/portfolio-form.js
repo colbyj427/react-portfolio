@@ -120,7 +120,7 @@ export default class PortfolioForm extends Component {
         let formData = new FormData();
 
         formData.append("portfolio_item[name]", this.state.name);
-        formData.append("portfolio_item[decription]", this.state.description);
+        formData.append("portfolio_item[description]", this.state.description);
         formData.append("portfolio_item[url]", this.state.url);
         formData.append("portfolio_item[category]", this.state.category);
         formData.append("portfolio_item[position]", this.state.position);
@@ -224,9 +224,9 @@ export default class PortfolioForm extends Component {
                         onChange={this.handleChange}
                         className="select-element"
                     >
-                        <option value="eCommerce">eCommerce</option>
-                        <option value="Scheduling">Scheduling</option>
-                        <option value="Enterprise">Enterprise</option>
+                        <option value="eCommerce">Interactive Applications</option>
+                        <option value="Scheduling">Automation & Scripting</option>
+                        <option value="Enterprise">Mobile Applications</option>
                     </select>
 
                 </div>
