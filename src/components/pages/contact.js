@@ -15,20 +15,20 @@ export default function() {
       />
       <div className="right-column">
         <div className="contact-bullet-points">
-          <div className="bullet-point-group">
+          {/* <div className="bullet-point-group">
             <div className="icon">
               <FontAwesomeIcon icon="phone" />
             </div>
 
             <div className="text">555-555-5555</div>
-          </div>
+          </div> */}
 
           <div className="bullet-point-group">
             <div className="icon">
               <FontAwesomeIcon icon="envelope" />
             </div>
 
-            <div className="text">colby@example.com</div>
+            <div className="text">colbyj427@gmail.com</div>
           </div>
 
           <div className="bullet-point-group">
@@ -36,7 +36,7 @@ export default function() {
               <FontAwesomeIcon icon="map-marked-alt" />
             </div>
 
-            <div className="text">Highland, UT</div>
+            <div className="text">Provo, UT</div>
           </div>
         </div>
       </div>
