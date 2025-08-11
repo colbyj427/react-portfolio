@@ -4,6 +4,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
+    /* Ensure links inside portfolio items have no underline */
+    a {
+        text-decoration: none;
+        color: inherit;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
     .portfolio-item-wrapper {
         position: relative;
 
@@ -49,7 +60,7 @@
             font-size: 1.1rem;
             color: #222;
             text-align: center;
-            /* Make sure it’s visible permanently */
+            /* No text-decoration here — handled at the <a> level */
         }
     }
 }
